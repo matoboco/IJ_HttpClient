@@ -26,7 +26,7 @@ class HttpRenameHandler : RenameHandler {
         val parent = psiElement.parent
         val processor = RenamePsiElementProcessor.forPsiElement(parent)
 
-        // 以后可以考虑实现成类似重命名类名那样的效果,不弹出弹窗,这样用户体验更好
+        // Could consider implementing this like class renaming (without showing dialog) for better UX in the future
         processor.createDialog(project, parent, parent, editor).show()
     }
 

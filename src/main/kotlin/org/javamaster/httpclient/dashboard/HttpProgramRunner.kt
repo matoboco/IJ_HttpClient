@@ -51,7 +51,7 @@ class HttpProgramRunner : GenericProgramRunner<RunnerSettings>() {
         val tabName = HttpUtils.getTabName(httpMethod)
 
         try {
-            // tabName会用作文件名,因此需要检测下
+            // tabName will be used as filename, so need to validate it
             Path.of(tabName)
 
             if (tabName.contains("/") || tabName.contains("\\")) {

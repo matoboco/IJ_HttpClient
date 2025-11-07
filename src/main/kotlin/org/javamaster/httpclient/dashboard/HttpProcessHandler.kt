@@ -317,7 +317,7 @@ class HttpProcessHandler(val httpMethod: HttpMethod, private val selectedEnv: St
         )
 
         val resList = jsExecutor.evalJsBeforeRequest(reqInfo.preJsFiles, jsListBeforeReq)
-        println("js执行结果:${resList}")
+        println("JS execution result: ${resList}")
 
         var url = variableResolver.resolve(requestTarget.url)
 

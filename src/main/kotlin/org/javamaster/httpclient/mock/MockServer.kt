@@ -343,11 +343,11 @@ class MockServer {
                     <h1>HTTP status 404 - Not Found</h1>
                     <hr class="line"/>
                     <p>
-                        <b>类型</b>
-                        状态报告
+                        <b>Type</b>
+                        Status Report
                     </p>
                     <p>
-                        <b>消息</b>
+                        <b>Message</b>
                         path [$reqPath] not found
                     </p>
                     <hr class="line"/>

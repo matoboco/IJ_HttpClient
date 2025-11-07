@@ -32,7 +32,7 @@ class ControllerPsiTreeChangePreprocessor : PsiTreeChangePreprocessor {
                 return
             }
 
-            // 难以安全的判断改动的文件是否是 Controller 类, 先屏蔽后面的逻辑
+            // It's difficult to safely determine if the modified file is a Controller class, so disable the logic below for now
             @Suppress("ConstantConditionIf")
             if (true) {
                 ControllerPsiModificationTracker.myModificationCount.incModificationCount()

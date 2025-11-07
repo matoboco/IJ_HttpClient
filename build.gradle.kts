@@ -72,7 +72,7 @@ tasks {
     }
 
     jar {
-        // kt文件不知道被哪个配置影响导致被编译了两次,所以这里暂时配置下
+        // kt files are somehow being compiled twice due to unknown configuration, so this is a temporary fix
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     }
 

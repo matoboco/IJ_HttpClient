@@ -481,7 +481,7 @@ object HttpUtils {
 
     fun constructFilePath(filePath: String, parentPath: String): String {
         return if (filePath.startsWith("/") || (filePath.length > 1 && filePath[1] == ':')) {
-            // 绝对路径
+            // Absolute path
             filePath
         } else {
             "$parentPath/$filePath"

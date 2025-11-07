@@ -192,12 +192,12 @@ public class HttpDashboardForm implements Disposable {
 
             boolean deleted = file.delete();
             if (deleted) {
-                System.out.println("已删除文件:" + absolutePath);
+                System.out.println("File deleted: " + absolutePath);
             }
 
             //noinspection DataFlowIssue
             Files.write(file.toPath(), httpInfo.getByteArray());
-            System.out.println("已保存到文件:" + absolutePath);
+            System.out.println("Saved to file: " + absolutePath);
 
             VirtualFile virtualFile = VfsUtil.findFileByIoFile(file, true);
 

@@ -35,7 +35,7 @@ object AnnoUtils {
                     if (res != null) {
                         list.add(res)
                     } else {
-                        // 如果是jar包里的JvmAnnotationConstantValue则无法正常获取值
+                        // If it's a JvmAnnotationConstantValue from a jar file, the value cannot be obtained normally
                         try {
                             val clazz: Class<out JvmAnnotationAttributeValue> = value.javaClass
 

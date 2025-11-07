@@ -58,13 +58,13 @@ class MessageBodyInjectionContributor : MultiHostInjector {
         val text = host.text
         val length = text.length
         if (length > HttpUtils.RES_SIZE_LIMIT) {
-            // 大文本不再注入语言，防止 IDEA 卡顿
+            // Don't inject language for large text to prevent IDE lag
             return
         }
 
         if (language == JsonLanguage.INSTANCE) {
             if (length > 3000 && text.indexOf('\n', length - 3000) == -1) {
-                // 表明是未格式化的过长的JSON，注入语言也没有意义，跳过注入
+                // Indicates unformatted overly long JSON, skip language injection as it's meaningless
                 return
             }
 

@@ -115,7 +115,7 @@ class EnvFileService(val project: Project) {
 
         val elementCopy = value.addBefore(newProperty, value.lastChild)
 
-        // 将光标移动到引号内
+        // Move cursor inside the quotes
         (elementCopy.lastChild as Navigatable).navigate(true)
         val caretModel = FileEditorManager.getInstance(project).selectedTextEditor?.caretModel ?: return
         caretModel.moveToOffset(caretModel.offset + 1)

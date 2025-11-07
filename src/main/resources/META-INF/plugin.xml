@@ -33,33 +33,6 @@
                 <li>Type gtr or ptr to trigger live templates and quickly create HTTP requests</li>
                 <li>Click the run button on the left side of the editor to sending request and view the response</li>
             </ol>
-            提供从 IDEA Editor 编写和执行 HTTP 请求的能力：<br>
-            <ul>
-                <li>支持发起 GET、POST 等请求</li>
-                <li>支持发起 WebSocket 请求</li>
-                <li>支持环境变量、内置变量和内置方法</li>
-                <li>支持从 url 跳转到对应的 SpringMVC/Micronaut Controller 方法</li>
-                <li>url 悬浮提示对应的 SpringMVC/Micronaut Controller 方法信息</li>
-                <li>支持从 json 属性跳转到对应的 SpringMVC/Micronaut Controller 方法的出入参 Bean 字段</li>
-                <li>json 属性悬浮提示对应的 SpringMVC/Micronaut Controller 方法的出入参 Bean 字段信息</li>
-                <li>
-                    支持 JavaScript 语法的前置处理器、后置处理器和全局前置处理器(JavaScript 语法高亮功能依赖 WebCalm 插件.
-                    在安装 WebCalm 插件后, 请重启 IDEA, 否则 js 语法高亮功能不会生效)
-                </li>
-                <li>支持从文件读取内容作为请求体</li>
-                <li>支持保存响应到文件</li>
-                <li>当响应的 Content-Type 为图片时支持直接预览响应的图片</li>
-                <li>支持预览 HTML 响应</li>
-                <li>支持预览 pdf 响应</li>
-                <li>支持在 SearchEverywhere 窗口搜索 SpringMVC/Micronaut Api</li>
-                <li>支持 Mock Server</li>
-            </ul>
-            开始使用：<br>
-            <ol>
-                <li>创建一个 http 后缀的文件</li>
-                <li>输入 gtr 或 ptr 等触发实时模板从而快速创建 http 请求</li>
-                <li>点击编辑器左侧的运行按钮发起请求并查看响应</li>
-            </ol>
         ]]>
     </description>
 
@@ -68,187 +41,187 @@
             <ul>
                 <li><b>5.8.3</b></li>
                 <ul>
-                    <li>JSON key 输入智能提示 Spring 控制器入参 Bean 字段名</li>
+                    <li>JSON key input provides intelligent completion for Spring Controller parameter Bean field names</li>
                 </ul>
                 <li><b>5.8.1</b></li>
                 <ul>
-                    <li>调整最低兼容版本为230</li>
-                    <li>Services 窗口突出显示当前执行的请求</li>
-                    <li>bug修复及功能优化</li>
+                    <li>Adjusted minimum compatible version to 230</li>
+                    <li>Services window highlights currently executing request</li>
+                    <li>Bug fixes and feature improvements</li>
                 </ul>
                 <li><b>5.7.9</b></li>
                 <ul>
-                    <li>bug修复及功能优化</li>
+                    <li>Bug fixes and feature improvements</li>
                 </ul>
                 <li><b>5.7.8</b></li>
                 <ul>
-                    <li>当响应体文本内容过大时，为防止 IDEA 卡顿，不再执行语言注入及 JSON 格式化等处理</li>
-                    <li>bug修复及功能优化</li>
+                    <li>When response body text content is too large, language injection and JSON formatting are no longer performed to prevent IDEA from freezing</li>
+                    <li>Bug fixes and feature improvements</li>
                 </ul>
                 <li><b>5.7.5</b></li>
                 <ul>
                     <li>
-                        调整env文件的查找逻辑:
-                        从http文件所在目录逐级向上级目录查找直到项目根目录，找到env.private文件则返回 > 从http文件所在目录逐级向上级目录查找直到项目根目录，找到env文件则返回
+                        Adjusted env file lookup logic:
+                        Search from http file directory upward to project root directory, return when env.private file is found > Search from http file directory upward to project root directory, return when env file is found
                     </li>
                 </ul>
                 <li><b>5.7.1</b></li>
                 <ul>
-                    <li>内置方法的参数支持输入负数</li>
-                    <li>路径元素支持#</li>
-                    <li>bug修复及功能优化</li>
+                    <li>Built-in method parameters support negative numbers</li>
+                    <li>Path elements support #</li>
+                    <li>Bug fixes and feature improvements</li>
                 </ul>
                 <li><b>5.6.0</b></li>
                 <ul>
-                    <li>http 的 PATCH 和 DELETE 请求支持请求体</li>
-                    <li>path路径输入智能提示</li>
-                    <li>bug修复及功能优化</li>
+                    <li>HTTP PATCH and DELETE requests support request body</li>
+                    <li>Path input provides intelligent completion</li>
+                    <li>Bug fixes and feature improvements</li>
                 </ul>
                 <li><b>5.5.0</b></li>
                 <ul>
-                    <li>新增 no-log 指令</li>
-                    <li>查看可用变量窗口支持直接新增或修改变量</li>
-                    <li>bug修复及功能优化</li>
+                    <li>Added no-log directive</li>
+                    <li>View available variables window supports adding or modifying variables directly</li>
+                    <li>Bug fixes and feature improvements</li>
                 </ul>
                 <li><b>5.3.0</b></li>
                 <ul>
-                    <li>新增格式化功能</li>
-                    <li>新增 Mock Server 功能</li>
-                    <li>bug修复及功能优化</li>
+                    <li>Added formatting feature</li>
+                    <li>Added Mock Server feature</li>
+                    <li>Bug fixes and feature improvements</li>
                 </ul>
                 <li><b>5.0.0</b></li>
                 <ul>
                     <li>
-                        Service 窗口新增垂直工具栏，包括视图设置(是否显示行号/是否默认折叠http头/修改内容类型)、软换行、滚动到顶部、
-                        滚动到底部、复制请求体或响应体内容、预览 html/pdf/image 响应等功能
+                        Service window added vertical toolbar, including view settings (show line numbers/fold HTTP headers by default/modify content type), soft wrap, scroll to top,
+                        scroll to bottom, copy request/response body content, preview html/pdf/image responses and other features
                     </li>
-                    <li>新增查询参数跳转对应控制器入参功能</li>
-                    <li>新增查询参数文档提示对应的控制器入参功能</li>
-                    <li>新增查看请求历史及对比历史响应功能</li>
-                    <li>新增将请求转换为 curl 功能</li>
-                    <li>改进导入 curl 功能</li>
-                    <li>改进响应图片直接预览功能</li>
-                    <li>http头文档提示国际化</li>
-                    <li>bug修复及功能优化</li>
+                    <li>Added feature to jump from query parameters to corresponding controller parameters</li>
+                    <li>Added documentation tooltip for query parameters showing corresponding controller parameters</li>
+                    <li>Added feature to view request history and compare historical responses</li>
+                    <li>Added feature to convert request to curl</li>
+                    <li>Improved curl import feature</li>
+                    <li>Improved direct preview feature for image responses</li>
+                    <li>HTTP header documentation tooltip internationalization</li>
+                    <li>Bug fixes and feature improvements</li>
                 </ul>
                 <li><b>3.9.5</b></li>
                 <ul>
-                    <li>完善 js 语句块的注入逻辑</li>
-                    <li>新增在 js 前置处理器设置请求头方法</li>
-                    <li>bug修复</li>
+                    <li>Improved JavaScript block injection logic</li>
+                    <li>Added method to set request headers in JavaScript pre-processor</li>
+                    <li>Bug fixes</li>
                 </ul>
                 <li><b>3.9.2</b></li>
                 <ul>
-                    <li>支持 2025.1版本</li>
+                    <li>Support for version 2025.1</li>
                 </ul>
                 <li><b>3.9.0</b></li>
                 <ul>
-                    <li>新增快速创建 http 请求功能</li>
-                    <li>新增从 curl 导入功能</li>
-                    <li>功能优化及Bug修复</li>
+                    <li>Added quick create HTTP request feature</li>
+                    <li>Added import from curl feature</li>
+                    <li>Feature improvements and bug fixes</li>
                 </ul>
                 <li><b>3.8.0</b></li>
                 <ul>
-                    <li>完善 http 语法错误提示</li>
-                    <li>调整二进制响应的展示逻辑</li>
-                    <li>默认保存二进制响应到文件</li>
-                    <li>功能优化及Bug修复</li>
+                    <li>Improved HTTP syntax error messages</li>
+                    <li>Adjusted binary response display logic</li>
+                    <li>Save binary responses to file by default</li>
+                    <li>Feature improvements and bug fixes</li>
                 </ul>
                 <li><b>3.7.0</b></li>
                 <ul>
-                    <li>新增全局引入 npm 库依赖功能</li>
-                    <li>国际化处理</li>
-                    <li>Bug修复</li>
+                    <li>Added global npm library dependency import feature</li>
+                    <li>Internationalization support</li>
+                    <li>Bug fixes</li>
                 </ul>
                 <li><b>3.6.0</b></li>
                 <ul>
-                    <li>新增执行文件内所有请求功能</li>
-                    <li>新增全局导入 js 文件功能</li>
-                    <li>新增 header name 文档提示</li>
-                    <li>新增切换环境的 intention</li>
-                    <li>功能优化及Bug修复</li>
+                    <li>Added feature to execute all requests in file</li>
+                    <li>Added global JavaScript file import feature</li>
+                    <li>Added header name documentation tooltip</li>
+                    <li>Added switch environment intention</li>
+                    <li>Feature improvements and bug fixes</li>
                 </ul>
                 <li><b>3.5.0</b></li>
                 <ul>
-                    <li>支持变量的重命名功能</li>
-                    <li>新增 find usages 功能</li>
-                    <li>支持所有类型的 http 请求</li>
-                    <li>新增在 Controller url 上快速创建请求功能</li>
-                    <li>功能优化及Bug修复</li>
+                    <li>Support for variable renaming</li>
+                    <li>Added find usages feature</li>
+                    <li>Support for all types of HTTP requests</li>
+                    <li>Added quick create request feature on Controller URL</li>
+                    <li>Feature improvements and bug fixes</li>
                 </ul>
                 <li><b>3.3.0</b></li>
                 <ul>
-                    <li>新增 commenter</li>
-                    <li>新增 annotator</li>
-                    <li>新增变量的 inspection 检查及 fixes 快速修复</li>
-                    <li>新增 http url 对应的 SpringMVC Controller 方法文档悬浮提示</li>
-                    <li>新增 http 出入参的 json key 对应的 SpringMVC Controller 方法字段文档悬浮提示</li>
-                    <li>新增在 SearchEverywhere 窗口搜索 SpringMVC/Micronaut Api 功能</li>
-                    <li>调整变量等的着色逻辑,提升用户体验</li>
-                    <li>完善发起请求逻辑,减少UI卡顿</li>
-                    <li>完善控制器跳转逻辑,减少UI卡顿</li>
-                    <li>完善控制器方法字段跳转逻辑,减少UI卡顿</li>
-                    <li>功能优化及Bug修复</li>
+                    <li>Added commenter</li>
+                    <li>Added annotator</li>
+                    <li>Added variable inspection checks and quick fixes</li>
+                    <li>Added documentation tooltip for SpringMVC Controller methods corresponding to HTTP URL</li>
+                    <li>Added documentation tooltip for SpringMVC Controller method fields corresponding to HTTP request/response JSON keys</li>
+                    <li>Added SearchEverywhere window search for SpringMVC/Micronaut API feature</li>
+                    <li>Adjusted coloring logic for variables to improve user experience</li>
+                    <li>Improved request initiation logic to reduce UI freezing</li>
+                    <li>Improved controller navigation logic to reduce UI freezing</li>
+                    <li>Improved controller method field navigation logic to reduce UI freezing</li>
+                    <li>Feature improvements and bug fixes</li>
                 </ul>
                 <li><b>2.8.0</b></li>
                 <ul>
-                    <li>调整请求头的智能提示逻辑,提升用户体验</li>
-                    <li>新增 js 处理器中可用的 api，如jsonPath、xPath等等</li>
-                    <li>功能优化及Bug修复</li>
+                    <li>Adjusted request header intelligent completion logic to improve user experience</li>
+                    <li>Added APIs available in JavaScript handlers, such as jsonPath, xPath, etc.</li>
+                    <li>Feature improvements and bug fixes</li>
                 </ul>
                 <li><b>2.7.0</b></li>
                 <ul>
-                    <li>新增读取文件内容的内置方法</li>
-                    <li>环境文件允许引用内置方法</li>
-                    <li>新增 js require 函数路径跳转功能</li>
-                    <li>重构 http 变量点击跳转逻辑</li>
-                    <li>查看可用变量窗口新增展示系统属性变量和系统环境变量</li>
-                    <li>功能优化及Bug修复</li>
+                    <li>Added built-in method to read file content</li>
+                    <li>Environment files allow referencing built-in methods</li>
+                    <li>Added path navigation for JavaScript require function</li>
+                    <li>Refactored HTTP variable click navigation logic</li>
+                    <li>View available variables window added display of system property variables and system environment variables</li>
+                    <li>Feature improvements and bug fixes</li>
                 </ul>
                 <li><b>2.6.0</b></li>
                 <ul>
-                    <li>内置变量支持引用系统变量,如 {{$property.java.version}}, 其中 java.version 是系统变量名</li>
-                    <li>内置变量支持引用环境变量,如 {{$env.OS}}, 其中 OS 是环境变量名</li>
-                    <li>变量输入时的智能提示新增系统变量和环境变量</li>
-                    <li>新增 URLSearchParams js对象用于处理查询参数</li>
-                    <li>允许在 js 处理器中访问系统变量和环境变量</li>
-                    <li>允许在 js 后置处理器中对于响应格式为 xml 的,可以使用 w3c 的 api 以及 xPath 进行操作</li>
+                    <li>Built-in variables support referencing system variables, such as {{$property.java.version}}, where java.version is the system variable name</li>
+                    <li>Built-in variables support referencing environment variables, such as {{$env.OS}}, where OS is the environment variable name</li>
+                    <li>Intelligent completion for variable input added system variables and environment variables</li>
+                    <li>Added URLSearchParams JavaScript object for handling query parameters</li>
+                    <li>Allow access to system variables and environment variables in JavaScript handlers</li>
+                    <li>Allow using w3c APIs and xPath operations for XML format responses in JavaScript post-handlers</li>
                     <li>
-                        保存响应到文件路径允许使用变量, 如 >> {{$mvnTarget}}/res.json, 当前可用的三个变量:
-                        {{$projectRoot}} 指向项目根目录,
-                        {{$historyFolder}} 指向 .idea/httpClient
-                        {{$mvnTarget}} 指向模块的 src/target
+                        Save response to file path allows using variables, such as >> {{$mvnTarget}}/res.json, currently available three variables:
+                        {{$projectRoot}} points to project root directory,
+                        {{$historyFolder}} points to .idea/httpClient
+                        {{$mvnTarget}} points to module's src/target
                     </li>
-                    <li>功能优化及Bug修复</li>
+                    <li>Feature improvements and bug fixes</li>
                 </ul>
                 <li><b>2.5.1</b></li>
                 <ul>
-                    <li>###行调整为可选</li>
-                    <li>Bug修复</li>
+                    <li>### line made optional</li>
+                    <li>Bug fixes</li>
                 </ul>
                 <li><b>2.5.0</b></li>
                 <ul>
-                    <li>提升内置方法的输入补全体验</li>
-                    <li>允许请求名称为空</li>
-                    <li>指定确切最低版本</li>
-                    <li>Bug修复</li>
+                    <li>Improved input completion experience for built-in methods</li>
+                    <li>Allow request name to be empty</li>
+                    <li>Specified exact minimum version</li>
+                    <li>Bug fixes</li>
                 </ul>
                 <li><b>2.2.0</b></li>
                 <ul>
-                    <li>默认折叠Header</li>
-                    <li>Bug修复</li>
+                    <li>Fold headers by default</li>
+                    <li>Bug fixes</li>
                 </ul>
                 <li><b>2.1.0</b></li>
                 <ul>
-                    <li>改进http语法错误恢复能力</li>
-                    <li>支持注释指令参数</li>
-                    <li>Bug修复</li>
+                    <li>Improved HTTP syntax error recovery capability</li>
+                    <li>Support comment directive parameters</li>
+                    <li>Bug fixes</li>
                 </ul>
                 <li><b>2.0.0</b></li>
                 <ul>
-                    <li>重构http语法解析逻辑，采用更科学的方式</li>
-                    <li>更合理的窗口布局</li>
-                    <li>Bug修复</li>
+                    <li>Refactored HTTP syntax parsing logic with more scientific approach</li>
+                    <li>More reasonable window layout</li>
+                    <li>Bug fixes</li>
                 </ul>
             </ul>
         ]]>

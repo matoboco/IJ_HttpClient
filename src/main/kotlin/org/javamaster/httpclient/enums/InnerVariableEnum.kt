@@ -401,7 +401,7 @@ enum class InnerVariableEnum(val methodName: String) {
     },
     RANDOM_PHONE_NUMBER("\$random.phoneNumber") {
         override fun typeText(): String {
-            return "生成电话号码"
+            return "Generate phone number"
         }
 
         override fun exec(httpFileParentPath: String, vararg args: Any): String {
@@ -410,7 +410,7 @@ enum class InnerVariableEnum(val methodName: String) {
     },
     RANDOM_COLOR("\$random.color") {
         override fun typeText(): String {
-            return "生成颜色名称"
+            return "Generate color name"
         }
 
         override fun exec(httpFileParentPath: String, vararg args: Any): String {
@@ -419,7 +419,7 @@ enum class InnerVariableEnum(val methodName: String) {
     },
     RANDOM_EDUCATOR("\$random.educator") {
         override fun typeText(): String {
-            return "生成教育家课程"
+            return "Generate educator course"
         }
 
         override fun exec(httpFileParentPath: String, vararg args: Any): String {
@@ -428,7 +428,7 @@ enum class InnerVariableEnum(val methodName: String) {
     },
     RANDOM_HACKER("\$random.hacker") {
         override fun typeText(): String {
-            return "生成 hacker"
+            return "Generate hacker term"
         }
 
         override fun exec(httpFileParentPath: String, vararg args: Any): String {
@@ -437,7 +437,7 @@ enum class InnerVariableEnum(val methodName: String) {
     },
     RANDOM_INTERNET("\$random.internet") {
         override fun typeText(): String {
-            return "生成 url"
+            return "Generate URL"
         }
 
         override fun exec(httpFileParentPath: String, vararg args: Any): String {
@@ -446,7 +446,7 @@ enum class InnerVariableEnum(val methodName: String) {
     },
     RANDOM_EMAIL("\$random.email") {
         override fun typeText(): String {
-            return "生成 email"
+            return "Generate email address"
         }
 
         override fun exec(httpFileParentPath: String, vararg args: Any): String {
@@ -455,7 +455,7 @@ enum class InnerVariableEnum(val methodName: String) {
     },
     RANDOM_BEER("\$random.beer") {
         override fun typeText(): String {
-            return "生成 beer"
+            return "Generate beer name"
         }
 
         override fun exec(httpFileParentPath: String, vararg args: Any): String {
@@ -464,7 +464,7 @@ enum class InnerVariableEnum(val methodName: String) {
     },
     RANDOM_CODE("\$random.code") {
         override fun typeText(): String {
-            return "生成 code"
+            return "Generate code"
         }
 
         override fun exec(httpFileParentPath: String, vararg args: Any): String {
@@ -473,7 +473,7 @@ enum class InnerVariableEnum(val methodName: String) {
     },
     RANDOM_COMMERCE("\$random.commerce") {
         override fun typeText(): String {
-            return "生成 commerce"
+            return "Generate product name"
         }
 
         override fun exec(httpFileParentPath: String, vararg args: Any): String {
@@ -482,7 +482,7 @@ enum class InnerVariableEnum(val methodName: String) {
     },
     RANDOM_CRYPTO("\$random.crypto") {
         override fun typeText(): String {
-            return "生成 md5"
+            return "Generate MD5 hash"
         }
 
         override fun exec(httpFileParentPath: String, vararg args: Any): String {
@@ -491,7 +491,7 @@ enum class InnerVariableEnum(val methodName: String) {
     },
     RANDOM_FINANCE("\$random.finance") {
         override fun typeText(): String {
-            return "生成 finance"
+            return "Generate BIC code"
         }
 
         override fun exec(httpFileParentPath: String, vararg args: Any): String {
@@ -500,7 +500,7 @@ enum class InnerVariableEnum(val methodName: String) {
     },
     RANDOM_ID_NUMBER("\$random.idNumber") {
         override fun typeText(): String {
-            return "生成 idNumber"
+            return "Generate ID number"
         }
 
         override fun exec(httpFileParentPath: String, vararg args: Any): String {
@@ -509,7 +509,7 @@ enum class InnerVariableEnum(val methodName: String) {
     },
     RANDOM_LOREM("\$random.lorem") {
         override fun typeText(): String {
-            return "生成 lorem"
+            return "Generate lorem ipsum word"
         }
 
         override fun exec(httpFileParentPath: String, vararg args: Any): String {
@@ -518,7 +518,7 @@ enum class InnerVariableEnum(val methodName: String) {
     },
     RANDOM_ANIMAL("\$random.animal") {
         override fun typeText(): String {
-            return "生成 animal"
+            return "Generate animal name"
         }
 
         override fun exec(httpFileParentPath: String, vararg args: Any): String {
@@ -527,7 +527,7 @@ enum class InnerVariableEnum(val methodName: String) {
     },
     RANDOM_NUMBER("\$random.number") {
         override fun typeText(): String {
-            return "生成范围内数字,用法${methodName}(10, 1000)"
+            return "Generate number within range, usage: ${methodName}(10, 1000)"
         }
 
         override fun exec(httpFileParentPath: String, vararg args: Any): String {
@@ -547,7 +547,7 @@ enum class InnerVariableEnum(val methodName: String) {
     },
     RANDOM_SHAKESPEARE("\$random.shakespeare") {
         override fun typeText(): String {
-            return "生成 shakespeare"
+            return "Generate Shakespeare quote"
         }
 
         override fun exec(httpFileParentPath: String, vararg args: Any): String {
@@ -556,7 +556,7 @@ enum class InnerVariableEnum(val methodName: String) {
     },
     RANDOM_TEAM("\$random.team") {
         override fun typeText(): String {
-            return "生成 team"
+            return "Generate team name"
         }
 
         override fun exec(httpFileParentPath: String, vararg args: Any): String {
@@ -565,7 +565,7 @@ enum class InnerVariableEnum(val methodName: String) {
     },
     RANDOM_PROGRAMMING_LANGUAGE("\$random.programmingLanguage") {
         override fun typeText(): String {
-            return "生成 programmingLanguage"
+            return "Generate programming language name"
         }
 
         override fun exec(httpFileParentPath: String, vararg args: Any): String {
