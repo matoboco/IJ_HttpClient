@@ -7,10 +7,10 @@
 - Support sending WebSocket request
 - Support sending Dubbo request
 - Support Environment, build-in variable and build-in method
-- Support jump to SpringMVC Controller method from url
-- Show SpringMVC Controller method information when hover in url
-- Support jump to SpringMVC Controller method bean field from json property
-- Show SpringMVC Controller method bean field information when hover in json key
+- Support jump to SpringMVC/Micronaut Controller method from url
+- Show SpringMVC/Micronaut Controller method information when hover in url
+- Support jump to SpringMVC/Micronaut Controller method bean field from json property
+- Show SpringMVC/Micronaut Controller method bean field information when hover in json key
 - Support JavaScript previous handler, post handler and global handler(JavaScript syntax highlighting depends on WebCalm 
   plugin. After install WebCalm, please restart IDEA, Otherwise JavaScript syntax highlighting will not work.)
 - Support reading file content as http request body
@@ -18,7 +18,7 @@
 - When the response Content-Type is image type, it supports direct preview of the corresponding image
 - Support preview HTML response
 - Support preview pdf response
-- Support searching SpringMVC Api in the SearchEverywhere Dialog
+- Support searching SpringMVC/Micronaut Api in the SearchEverywhere Dialog
 - Support Mock Server
 
 ### Getting Started
@@ -35,17 +35,17 @@
 - 支持发起 WebSocket 请求
 - 支持发起 Dubbo 请求
 - 支持环境变量、内置变量和内置方法
-- 支持从 url 跳转到对应的 SpringMVC Controller 方法
-- url 悬浮提示对应的 SpringMVC Controller 方法信息
-- 支持从 json 属性跳转到对应的 SpringMVC Controller 方法的出入参 Bean 字段
-- json 属性悬浮提示对应的 SpringMVC Controller 方法的出入参 Bean 字段信息
+- 支持从 url 跳转到对应的 SpringMVC/Micronaut Controller 方法
+- url 悬浮提示对应的 SpringMVC/Micronaut Controller 方法信息
+- 支持从 json 属性跳转到对应的 SpringMVC/Micronaut Controller 方法的出入参 Bean 字段
+- json 属性悬浮提示对应的 SpringMVC/Micronaut Controller 方法的出入参 Bean 字段信息
 - 支持 JavaScript 语法的前置处理器、后置处理器和全局前置处理器(JavaScript 语法高亮功能依赖 WebCalm 插件. 在安装 WebCalm 插件后, 请重启 IDEA, 否则 js 语法高亮功能不会生效)
 - 支持从文件读取内容作为请求体
 - 支持保存响应到文件
 - 当响应的 Content-Type 为图片类型时支持直接预览响应的图片
 - 支持预览 HTML 响应
 - 支持预览 pdf 响应
-- 支持在 SearchEverywhere 窗口搜索 SpringMVC Api
+- 支持在 SearchEverywhere 窗口搜索 SpringMVC/Micronaut Api
 - 支持 Mock Server
 
 ### 开始使用
