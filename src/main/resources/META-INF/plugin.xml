@@ -440,6 +440,7 @@
             <action class="org.javamaster.httpclient.action.addHttp.AddDubboNameAction"/>
             <separator/>
             <action class="org.javamaster.httpclient.action.addHttp.ImportCurlAction"/>
+            <action class="org.javamaster.httpclient.action.addHttp.ImportCurlFromClipboardAction"/>
             <separator/>
             <action class="org.javamaster.httpclient.action.addHttp.AddEnvFileAction"/>
             <action class="org.javamaster.httpclient.action.addHttp.AddEnvPrivateFileAction"/>
