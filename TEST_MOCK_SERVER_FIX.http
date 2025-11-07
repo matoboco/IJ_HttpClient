@@ -1,0 +1,31 @@
+### Test Mock Server Fix - Simple
+MOCK_SERVER http://localhost:4000
+Content-Type: application/json
+
+{
+  "status": "ok",
+  "message": "Mock server is working!",
+  "timestamp": "{{$isoTimestamp}}"
+}
+
+### Test Mock Server Fix - With Random Data
+MOCK_SERVER http://localhost:4001
+Content-Type: application/json
+
+{
+  "user": {
+    "name": "{{$random.firstName}} {{$random.lastName}}",
+    "email": "{{$random.email}}"
+  },
+  "uuid": "{{$uuid}}"
+}
+
+### Test Mock Server Fix - Custom Status
+# @responseStatus 201
+MOCK_SERVER http://localhost:4002
+Content-Type: application/json
+
+{
+  "created": true,
+  "id": "{{$uuid}}"
+}

@@ -126,15 +126,14 @@ class MockServer {
 
     private fun readAsString(inputStream: InputStream): String {
         val reader = InputStreamReader(inputStream, StandardCharsets.UTF_8)
-        val buffer = CharArray(819200000)
-
-        val bytesRead = reader.read(buffer)
-        if (bytesRead == -1) {
-            return ""
-        }
+        val buffer = CharArray(8192)  // 8 KB buffer - fixed from 819MB bug
 
         val out = StringBuilder()
-        out.appendRange(buffer, 0, bytesRead)
+        var bytesRead: Int
+
+        while (reader.read(buffer).also { bytesRead = it } != -1) {
+            out.appendRange(buffer, 0, bytesRead)
+        }
 
         return out.toString()
     }
