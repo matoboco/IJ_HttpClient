@@ -10,6 +10,7 @@ import com.intellij.psi.util.CachedValueProvider
 import com.intellij.psi.util.CachedValuesManager
 import com.jetbrains.rd.util.concurrentMapOf
 import org.javamaster.httpclient.scan.support.ControllerPsiModificationTracker
+import org.javamaster.httpclient.scan.support.MicronautControllerScanService
 import org.javamaster.httpclient.scan.support.Request
 import org.javamaster.httpclient.scan.support.SpringControllerScanService
 import java.util.function.Consumer
@@ -33,21 +34,31 @@ object ScanRequest {
     }
 
     fun fetchRequests(project: Project, searchScope: GlobalSearchScope, consumer: Consumer<Request>) {
-        val controllerScanService = SpringControllerScanService.getService(project)
+        // Spring controllery
+        val springService = SpringControllerScanService.getService(project)
+        springService.fetchRequests(project, searchScope, consumer)
 
-        controllerScanService.fetchRequests(project, searchScope, consumer)
+        // Micronaut controllery
+        val micronautService = MicronautControllerScanService.getService(project)
+        micronautService.fetchRequests(project, searchScope, consumer)
     }
 
     fun getCacheRequestMap(module: Module, project: Project): Map<String, List<Request>> {
-        val controllerScanService = SpringControllerScanService.getService(project)
-
         val key = keyMap.computeIfAbsent(module.name) {
             Key.create("httpClient.requestMap.$it")
         }
 
         return CachedValuesManager.getManager(project)
             .getCachedValue(module, key, {
-                val requests = controllerScanService.findRequests(project, module.moduleWithLibrariesScope)
+                val requests = mutableListOf<Request>()
+
+                // Spring controllery
+                val springService = SpringControllerScanService.getService(project)
+                requests.addAll(springService.findRequests(project, module.moduleWithLibrariesScope))
+
+                // Micronaut controllery
+                val micronautService = MicronautControllerScanService.getService(project)
+                requests.addAll(micronautService.findRequests(project, module.moduleWithLibrariesScope))
 
                 val requestMap = requests.groupBy { it.toString() }
 
