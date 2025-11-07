@@ -44,9 +44,7 @@ class ShowRequestHistoryAction : AnAction(nls("show.req.history"), null, HttpIco
         val project = e.project!!
 
         val method = request.method.text
-        if (method == HttpRequestEnum.WEBSOCKET.name
-            || method == HttpRequestEnum.DUBBO.name
-        ) {
+        if (method == HttpRequestEnum.WEBSOCKET.name) {
             NotifyUtil.notifyWarn(project, nls("convert.not.supported"))
             return
         }

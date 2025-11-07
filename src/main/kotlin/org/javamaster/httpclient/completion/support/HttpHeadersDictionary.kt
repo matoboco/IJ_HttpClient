@@ -8,7 +8,6 @@ import org.apache.http.entity.ContentType
 import org.javamaster.httpclient.doc.support.HttpHeaderDocumentation
 import org.javamaster.httpclient.doc.support.HttpHeaderDocumentation.Companion.read
 import org.javamaster.httpclient.nls.NlsBundle
-import org.javamaster.httpclient.utils.DubboUtils
 
 /**
  * @author yudong
@@ -97,17 +96,6 @@ object HttpHeadersDictionary {
         }
 
         map
-    }
-
-    val dubboHeaderNames by lazy {
-        listOf(
-            HttpHeaders.CONTENT_TYPE,
-            DubboUtils.INTERFACE_KEY,
-            DubboUtils.INTERFACE_NAME,
-            DubboUtils.METHOD_KEY,
-            DubboUtils.VERSION,
-            DubboUtils.REGISTRY,
-        )
     }
 
     val headerValuesMap by lazy {

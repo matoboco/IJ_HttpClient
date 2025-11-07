@@ -12,7 +12,7 @@ import org.javamaster.httpclient.utils.HttpUtils.API_MODEL_PROPERTY_ANNO_NAME
 import org.javamaster.httpclient.utils.HttpUtils.generateAnno
 
 /**
- * show SpringMVC Controller or Dubbo Service method param field information when hover in json key
+ * show SpringMVC Controller method param field information when hover in json key
  *
  * @author yudong
  */

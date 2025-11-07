@@ -9,7 +9,6 @@
             <ul>
                 <li>Support sending GET, POST and other requests</li>
                 <li>Support sending WebSocket request</li>
-                <li>Support sending Dubbo request</li>
                 <li>Support Environment, build-in variable and build-in method</li>
                 <li>Support jump to SpringMVC/Micronaut Controller method from url</li>
                 <li>Show SpringMVC/Micronaut Controller method information when hover in url</li>
@@ -38,7 +37,6 @@
             <ul>
                 <li>支持发起 GET、POST 等请求</li>
                 <li>支持发起 WebSocket 请求</li>
-                <li>支持发起 Dubbo 请求</li>
                 <li>支持环境变量、内置变量和内置方法</li>
                 <li>支持从 url 跳转到对应的 SpringMVC/Micronaut Controller 方法</li>
                 <li>url 悬浮提示对应的 SpringMVC/Micronaut Controller 方法信息</li>
@@ -71,7 +69,6 @@
                 <li><b>5.8.3</b></li>
                 <ul>
                     <li>JSON key 输入智能提示 Spring 控制器入参 Bean 字段名</li>
-                    <li>JSON key 输入智能提示 Dubbo 服务方法入参名及字段名</li>
                 </ul>
                 <li><b>5.8.1</b></li>
                 <ul>
@@ -251,7 +248,6 @@
                 <ul>
                     <li>重构http语法解析逻辑，采用更科学的方式</li>
                     <li>更合理的窗口布局</li>
-                    <li>支持 Dubbo 请求</li>
                     <li>Bug修复</li>
                 </ul>
             </ul>
@@ -335,8 +331,6 @@
                          key="inspection.http.display.name" bundle="messages.HttpClientBundle"/>
 <!--        <psi.referenceContributor language="JSON"-->
 <!--                                  implementation="org.javamaster.httpclient.reference.JsonValuePsiReferenceContributor"/>-->
-        <psi.referenceContributor language="JSON"
-                                  implementation="org.javamaster.httpclient.reference.JsonKeyDubboServiceMethodFieldPsiReferenceContributor"/>
         <lang.documentationProvider language="JSON"
                                     implementationClass="org.javamaster.httpclient.doc.JsonKeyMethodFieldDocumentationProvider"/>
         <completion.contributor language="http" id="HttpCompletionContributor" order="last"
@@ -436,9 +430,6 @@
             <separator/>
             <action class="org.javamaster.httpclient.action.addHttp.AddWsAction"/>
             <separator/>
-            <action class="org.javamaster.httpclient.action.addHttp.AddDubboAction"/>
-            <action class="org.javamaster.httpclient.action.addHttp.AddDubboNameAction"/>
-            <separator/>
             <action class="org.javamaster.httpclient.action.addHttp.ImportCurlAction"/>
             <separator/>
             <action class="org.javamaster.httpclient.action.addHttp.AddEnvFileAction"/>
@@ -458,7 +449,6 @@
             <action class="org.javamaster.httpclient.action.example.AuthExampleAction"/>
             <separator/>
             <action class="org.javamaster.httpclient.action.example.WsExampleAction"/>
-            <action class="org.javamaster.httpclient.action.example.DubboExampleAction"/>
             <action class="org.javamaster.httpclient.action.example.MockServerExampleAction"/>
             <separator/>
             <action class="org.javamaster.httpclient.action.example.CryptoJsExampleAction"/>

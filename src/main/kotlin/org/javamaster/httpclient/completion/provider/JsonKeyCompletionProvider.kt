@@ -6,8 +6,6 @@ import com.intellij.codeInsight.completion.CompletionResultSet
 import com.intellij.codeInsight.lookup.LookupElementBuilder
 import com.intellij.json.psi.JsonStringLiteral
 import com.intellij.util.ProcessingContext
-import org.javamaster.httpclient.utils.DubboUtils.fillTargetDubboMethodParams
-import org.javamaster.httpclient.utils.DubboUtils.getTargetPsiFieldClass
 import org.javamaster.httpclient.utils.HttpUtils
 import org.javamaster.httpclient.utils.HttpUtils.resolveUrlControllerTargetPsiClass
 import org.javamaster.httpclient.utils.PsiTypeUtils
@@ -25,17 +23,7 @@ class JsonKeyCompletionProvider : CompletionProvider<CompletionParameters>() {
         val psiElement = parameters.position
         val currentJsonString = psiElement.parent as JsonStringLiteral
 
-        var targetPsiClass = resolveUrlControllerTargetPsiClass(currentJsonString)
-        if (targetPsiClass == null) {
-            val filled = fillTargetDubboMethodParams(currentJsonString, result, "")
-            if (filled) {
-                return
-            }
-
-            targetPsiClass = getTargetPsiFieldClass(currentJsonString, false)
-        }
-
-        targetPsiClass ?: return
+        val targetPsiClass = resolveUrlControllerTargetPsiClass(currentJsonString) ?: return
 
         val prefixMatcher = result.prefixMatcher
         val prefix = prefixMatcher.prefix

@@ -19,8 +19,6 @@ import org.apache.http.entity.ContentType
 import org.javamaster.httpclient.HttpRequestEnum
 import org.javamaster.httpclient.background.HttpBackground
 import org.javamaster.httpclient.dashboard.support.JsTgz
-import org.javamaster.httpclient.dubbo.DubboHandler
-import org.javamaster.httpclient.dubbo.support.DubboJars
 import org.javamaster.httpclient.enums.ParamEnum
 import org.javamaster.httpclient.enums.SimpleTypeEnum
 import org.javamaster.httpclient.env.EnvFileService.Companion.getEnvMap
@@ -224,8 +222,6 @@ class HttpProcessHandler(val httpMethod: HttpMethod, private val selectedEnv: St
         when (methodType) {
             HttpRequestEnum.WEBSOCKET -> handleWs(url, reqHeaderMap)
 
-            HttpRequestEnum.DUBBO -> handleDubbo(url, reqHeaderMap, reqBody, httpReqDescList)
-
             HttpRequestEnum.MOCK_SERVER -> handleMockServer()
 
             else -> handleHttp(url, reqHeaderMap, reqBody, httpReqDescList)
@@ -414,118 +410,6 @@ class HttpProcessHandler(val httpMethod: HttpMethod, private val selectedEnv: St
         httpDashboardForm.initWsForm(wsRequest)
 
         wsRequest!!.connect()
-    }
-
-    private fun handleDubbo(
-        url: String,
-        reqHeaderMap: LinkedMultiValueMap<String, String>,
-        reqBody: Any?,
-        httpReqDescList: MutableList<String>,
-    ) {
-        if (DubboJars.jarsNotDownloaded()) {
-            DubboJars.downloadAsync(project)
-
-            destroyProcess()
-            return
-        }
-
-        val dubboRequest = ActionUtil.underModalProgress(project, "Processing dubbo...") {
-            val module = ModuleUtil.findModuleForPsiElement(httpFile)
-
-            val clsName = "org.javamaster.httpclient.dubbo.DubboRequest"
-            val dubboRequestClazz = DubboJars.dubboClassLoader.loadClass(clsName)
-
-            val constructor = dubboRequestClazz.declaredConstructors[0]
-            constructor.isAccessible = true
-
-            val dubboRequest: DubboHandler
-            try {
-                dubboRequest = constructor.newInstance(
-                    tabName, url, reqHeaderMap, reqBody,
-                    httpReqDescList, module, project, paramMap
-                ) as DubboHandler
-            } catch (e: InvocationTargetException) {
-                throw e.targetException
-            }
-
-            dubboRequest
-        }
-
-        val future = dubboRequest.sendAsync()
-
-        future.whenCompleteAsync { triple, throwable ->
-
-            runInEdt {
-                application.runWriteAction {
-                    if (throwable != null) {
-                        val httpInfo = HttpInfo(httpReqDescList, mutableListOf(), null, null, throwable)
-
-                        dealResponse(httpInfo, parentPath)
-
-                        return@runWriteAction
-                    }
-
-                    httpStatus = 200
-                    costTimes = triple.third
-
-                    val bodyBytes = triple.first
-                    val bodyStr = triple.second
-
-                    val size = Formats.formatFileSize(bodyBytes.size.toLong())
-
-                    val comment = nls("res.desc", 200, costTimes!!, size)
-
-                    val httpResDescList = mutableListOf("// $comment$CR_LF")
-
-                    val httpResInfo = HttpResInfo(
-                        SimpleTypeEnum.JSON, bodyBytes, bodyStr,
-                        ContentType.APPLICATION_JSON.mimeType
-                    )
-
-                    val evalJsRes = jsExecutor.evalJsAfterRequest(
-                        jsAfterReq,
-                        httpResInfo,
-                        200,
-                        mutableMapOf()
-                    )
-
-                    if (!evalJsRes.isNullOrEmpty()) {
-                        httpResDescList.add("/*$CR_LF${nls("post.js.executed.result")}:$CR_LF")
-                        httpResDescList.add("$evalJsRes$CR_LF")
-                        httpResDescList.add("*/$CR_LF")
-                    }
-
-                    httpResDescList.add("### $tabName$CR_LF")
-                    httpResDescList.add("DUBBO $url $CR_LF")
-                    httpResDescList.add("${HttpHeaders.CONTENT_LENGTH}: ${bodyBytes.size}$CR_LF")
-
-                    reqHeaderMap.forEach {
-                        val name = it.key
-                        it.value.forEach { value ->
-                            httpResDescList.add("$name: $value$CR_LF")
-                        }
-                    }
-                    httpResDescList.add(CR_LF)
-
-                    httpResDescList.add(bodyStr)
-
-                    val httpInfo = HttpInfo(
-                        httpReqDescList,
-                        httpResDescList,
-                        SimpleTypeEnum.JSON,
-                        bodyBytes,
-                        null,
-                        ContentType.APPLICATION_JSON.mimeType
-                    )
-
-                    dealResponse(httpInfo, parentPath)
-                }
-            }
-
-            destroyProcess()
-        }
-
-        cancelFutureIfTerminated(future)
     }
 
     private fun handleHttp(

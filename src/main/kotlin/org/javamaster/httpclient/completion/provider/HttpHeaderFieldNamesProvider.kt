@@ -20,19 +20,6 @@ class HttpHeaderFieldNamesProvider : CompletionProvider<CompletionParameters>() 
         parameters: CompletionParameters, context: ProcessingContext,
         result: CompletionResultSet,
     ) {
-        val request = PsiTreeUtil.getParentOfType(parameters.position, HttpRequest::class.java)
-        val method = request?.method?.text
-
-        if (method == HttpRequestEnum.DUBBO.name) {
-            HttpHeadersDictionary.dubboHeaderNames.forEach {
-                val builder = LookupElementBuilder.create(it)
-                    .withCaseSensitivity(false)
-                    .withInsertHandler(HttpSuffixInsertHandler.FIELD_SEPARATOR)
-                result.addElement(builder)
-            }
-            return
-        }
-
         for (header in HttpHeadersDictionary.headerMap.values) {
             val priority = PrioritizedLookupElement.withPriority(
                 LookupElementBuilder.create(header, header.name)

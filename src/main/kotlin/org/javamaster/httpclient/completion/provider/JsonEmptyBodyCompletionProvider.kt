@@ -8,9 +8,6 @@ import com.intellij.json.psi.JsonProperty
 import com.intellij.json.psi.JsonStringLiteral
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.util.ProcessingContext
-import org.javamaster.httpclient.utils.DubboUtils.fillTargetDubboMethodParams
-import org.javamaster.httpclient.utils.DubboUtils.findDubboServiceMethod
-import org.javamaster.httpclient.utils.DubboUtils.getTargetPsiFieldClass
 import org.javamaster.httpclient.utils.HttpUtils
 import org.javamaster.httpclient.utils.HttpUtils.resolveUrlControllerTargetPsiClass
 import org.javamaster.httpclient.utils.PsiTypeUtils
@@ -27,29 +24,7 @@ class JsonEmptyBodyCompletionProvider : CompletionProvider<CompletionParameters>
     ) {
         val psiElement = parameters.position
 
-        var targetPsiClass = resolveUrlControllerTargetPsiClass(psiElement)
-        if (targetPsiClass == null) {
-            val jsonProperty = PsiTreeUtil.getParentOfType(psiElement, JsonProperty::class.java)
-            val parentJsonProperty = PsiTreeUtil.getParentOfType(jsonProperty, JsonProperty::class.java)
-
-            if (parentJsonProperty != null) {
-                val jsonString = PsiTreeUtil.getChildOfType(parentJsonProperty, JsonStringLiteral::class.java)!!
-                val filled = fillTargetDubboMethodParams(jsonString, result, "\"")
-                if (filled) {
-                    return
-                }
-
-                targetPsiClass = getTargetPsiFieldClass(jsonString, true)
-            } else {
-                val dubboServiceMethod = findDubboServiceMethod(psiElement) ?: return
-
-                fillTargetDubboMethodParams(dubboServiceMethod, result)
-
-                return
-            }
-        }
-
-        targetPsiClass ?: return
+        val targetPsiClass = resolveUrlControllerTargetPsiClass(psiElement) ?: return
 
         val prefix = result.prefixMatcher.prefix
         if (prefix.contains("\"")) {

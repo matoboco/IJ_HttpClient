@@ -1,11 +1,10 @@
 # HttpClient
 
-## Provides the ability to edit and execute HTTP / WebSocket / Dubbo requests from the code editor of IDEA
+## Provides the ability to edit and execute HTTP / WebSocket requests from the code editor of IDEA
 
 ### features
 - Support sending GET, POST and other requests
 - Support sending WebSocket request
-- Support sending Dubbo request
 - Support Environment, build-in variable and build-in method
 - Support jump to SpringMVC/Micronaut Controller method from url
 - Show SpringMVC/Micronaut Controller method information when hover in url
@@ -27,13 +26,12 @@
 2. Type gtr or ptr to trigger live templates and quickly create HTTP requests
 3. Click the run button on the left side of the editor to sending request and view the response
 
-## 提供从 IDEA Editor 编写和执行 HTTP / WebSocket / Dubbo 请求的能力
+## 提供从 IDEA Editor 编写和执行 HTTP / WebSocket 请求的能力
 
 ### 主要功能如下：
 
 - 支持发起 GET、POST 等请求
 - 支持发起 WebSocket 请求
-- 支持发起 Dubbo 请求
 - 支持环境变量、内置变量和内置方法
 - 支持从 url 跳转到对应的 SpringMVC/Micronaut Controller 方法
 - url 悬浮提示对应的 SpringMVC/Micronaut Controller 方法信息
