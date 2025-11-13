@@ -1,0 +1,41 @@
+### Test 1: Uložiť JSON response
+GET https://jsonplaceholder.typicode.com/users/1
+Accept: application/json
+
+>> test-user.json
+
+###
+
+### Test 2: Uložiť všetkých používateľov
+GET https://jsonplaceholder.typicode.com/users
+Accept: application/json
+
+>> test-users.json
+
+###
+
+### Test 3: Uložiť post
+GET https://jsonplaceholder.typicode.com/posts/1
+Accept: application/json
+
+> {%
+    client.log("Post title: " + response.body.title);
+    client.global.set("postId", response.body.id);
+%}
+
+>> test-post.json
+
+###
+
+### Test 4: Stiahnuť HTML
+GET https://example.com
+
+>> test-example.html
+
+###
+
+### Test 5: API s parametrami
+GET https://jsonplaceholder.typicode.com/comments?postId=1
+Accept: application/json
+
+>> test-comments.json
